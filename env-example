@@ -1,0 +1,5 @@
+# You would typically use rake secret to generate a secure token. It is
+# critical that you keep this value private in production.
+SECRET_TOKEN=V7wJuxpmrcT2QFhBXSwcBSeduq9qvNFS
+
+DATABASE_URL=postgresql://postgres:postgres@postgres:5432/webstore?encoding=utf8&pool=5&timeout=5000

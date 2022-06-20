@@ -1,0 +1,6 @@
+.git
+.dockerignore
+.env
+webstore/node_modules/
+webstore/vendor/bundle/
+webstore/tmp/
