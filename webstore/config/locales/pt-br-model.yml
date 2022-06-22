@@ -37,8 +37,8 @@
       produto: "Produto"
     attributes:
       fornecedor:
-         nome: "Nome do fornecedor"
-         cpf_cnpj: "CPF/CNPJ"
+        nome: "Nome do fornecedor"
+        cpf_cnpj: "CPF/CNPJ"
       cliente:
         nome: "Nome do cliente"
         cpf_cnpj: "CPF/CNPJ"
