@@ -18,7 +18,11 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+# This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
+
+# Font-Awesome SASS gem for use in Ruby projects
+gem 'font-awesome-sass'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

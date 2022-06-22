@@ -40,7 +40,7 @@
          nome: "Nome do fornecedor"
          cpf_cnpj: "CPF/CNPJ"
       cliente:
-        nome: "Nome"
+        nome: "Nome do cliente"
         cpf_cnpj: "CPF/CNPJ"
       produto:
          nome: "Nome do produto"

@@ -1,3 +1,4 @@
+<h2>Exibindo Fornecedor</h2>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,9 +7,9 @@
 </p>
 
 <p>
-  <strong>Cpf cnpj:</strong>
+  <strong>Preço de venda:</strong>
   <%= @fornecedor.cpf_cnpj %>
 </p>
 
-<%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
-<%= link_to 'Back', fornecedores_path %>
+<%= link_to 'Editar', edit_fornecedor_path(@fornecedor), class: "btn btn-warning text-white" %>
+<%= link_to 'Voltar', fornecedores_path, class: "btn btn-secondary text-white" %>

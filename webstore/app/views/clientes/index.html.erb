@@ -1,0 +1,28 @@
+<h2>Lista de Clientes</h2>
+<p id="notice"><%= notice %></p>
+<table id="datatable" class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF/CPNJ</th>
+      <th width="20%">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td class="align-middle"><%= cliente.nome %></td>
+        <td class="align-middle"><%= cliente.cpf_cnpj %></td>
+		
+        <td>
+			<%= link_to 'Exibir', cliente, class: "btn btn-info text-white" %>
+			<%= link_to 'Editar', edit_cliente_path(cliente), class: "btn btn-warning text-white" %>
+			<%= link_to 'Excluir', cliente, class: "btn btn-danger text-white", method: :delete, data: { confirm: 'Tem certeza?' } %>
+		</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-primary text-white" %>

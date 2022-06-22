@@ -1,3 +1,4 @@
+<h2>Exibindo Produto</h2>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,9 +7,9 @@
 </p>
 
 <p>
-  <strong>Preco venda:</strong>
+  <strong>Preço de venda:</strong>
   <%= @produto.preco_venda %>
 </p>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Editar', edit_produto_path(@produto), class: "btn btn-warning text-white" %>
+<%= link_to 'Voltar', produtos_path, class: "btn btn-secondary text-white" %>

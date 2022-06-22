@@ -1,10 +1,10 @@
-<%= form_with(model: fornecedor, local: true, :class => 'form-floating') do |form| %>
-  <% if fornecedor.errors.any? %>
+<%= form_with(model: cliente, local: true, :class => 'form-floating') do |form| %>
+  <% if cliente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
       <ul>
-        <% fornecedor.errors.full_messages.each do |message| %>
+        <% cliente.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
