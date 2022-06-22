@@ -11,16 +11,21 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :nome, class: "form-label" %>
-	<%= form.text_field :nome, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :preco_venda, class: "form-label" %>
-	<%= form.text_field :preco_venda, class: "form-control" %>
-
-  <div class="actions pt-2">
-    <%= form.submit(:class => 'btn btn-success') %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating mb-3">
+  	    <%= form.text_field :nome, {class: "form-control"} %>
+        <%= form.label :nome %>
+      </div>
+	</div>
+    <div class="col">
+      <div class="form-floating mb-3">
+  	    <%= form.text_field :preco_venda, {class: "form-control"} %>
+        <%= form.label :preco_venda %>
+      </div>
+	</div>
+    <div class="actions pt-2">
+      <%= form.submit(:class => 'btn btn-success') %>
+    </div>
   </div>
 <% end %>

@@ -12,7 +12,6 @@ services:
       - '5432:5432'
     volumes:
       - webstore-postgres:/var/lib/postgresql/data
-      - init.sql:/data/application/init.sql
 
   webstore:
     build:

@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cpf_cnpj %>
-    <%= form.text_field :cpf_cnpj %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit(:class => 'btn btn-success') %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating mb-3">
+  	    <%= form.text_field :nome, {class: "form-control"} %>
+        <%= form.label :nome %>
+      </div>
+	</div>
+    <div class="col">
+      <div class="form-floating mb-3">
+  	    <%= form.text_field :cpf_cnpj, {class: "form-control"} %>
+        <%= form.label :cpf_cnpj %>
+      </div>
+	</div>
+    <div class="actions pt-2">
+      <%= form.submit(:class => 'btn btn-success') %>
+    </div>
   </div>
 <% end %>

@@ -16,6 +16,7 @@ COPY webstore/ .
 RUN rm -rf node_modules vendor
 RUN gem install rails:6.0.3.2 bundler
 RUN bundle install
+RUN "curl -s https://deb.nodesource.com/setup_16.x | sudo bashcurl -s https://deb.nodesource.com/setup_16.x | sudo bash"
 RUN yarn install
 
 # Start server
