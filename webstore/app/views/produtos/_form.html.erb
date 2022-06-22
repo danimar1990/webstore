@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="mb-3">
+    <%= form.label :nome, class: "form-label" %>
+	<%= form.text_field :nome, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :preco_venda %>
-    <%= form.text_field :preco_venda %>
-  </div>
+  <div class="mb-3">
+    <%= form.label :preco_venda, class: "form-label" %>
+	<%= form.text_field :preco_venda, class: "form-control" %>
 
-  <div class="actions">
+  <div class="actions pt-2">
     <%= form.submit(:class => 'btn btn-success') %>
   </div>
 <% end %>
