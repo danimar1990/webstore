@@ -35,6 +35,8 @@
       fornecedor: "Fornecedor"
       cliente: "Cliente"
       produto: "Produto"
+      compra: "Compra"
+      venda: "Venda"
     attributes:
       fornecedor:
         nome: "Nome do fornecedor"
@@ -43,5 +45,10 @@
         nome: "Nome do cliente"
         cpf_cnpj: "CPF/CNPJ"
       produto:
-         nome: "Nome do produto"
-         preco_venda: "Preço de venda"
+        nome: "Nome do produto"
+        preco_venda: "Preço de venda"
+      compra:
+        data: "Data compra"
+        fornecedor: "Fornecedor"
+        observacao: "Observações"
+        valor_total: "Valor total"

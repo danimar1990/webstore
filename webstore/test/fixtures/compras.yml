@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  data: 2022-06-23 11:49:13
+  data: 2022-06-23
   fornecedor: one
   observacao: MyText
-  valor_total_compra: 9.99
+  valor_total: 9.99
 
 two:
-  data: 2022-06-23 11:49:13
+  data: 2022-06-23
   fornecedor: two
   observacao: MyText
-  valor_total_compra: 9.99
+  valor_total: 9.99

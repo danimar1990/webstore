@@ -17,7 +17,7 @@ class ComprasTest < ApplicationSystemTestCase
     fill_in "Data", with: @compra.data
     fill_in "Fornecedor", with: @compra.fornecedor_id
     fill_in "Observacao", with: @compra.observacao
-    fill_in "Valor total compra", with: @compra.valor_total_compra
+    fill_in "Valor total", with: @compra.valor_total
     click_on "Create Compra"
 
     assert_text "Compra was successfully created"
@@ -31,7 +31,7 @@ class ComprasTest < ApplicationSystemTestCase
     fill_in "Data", with: @compra.data
     fill_in "Fornecedor", with: @compra.fornecedor_id
     fill_in "Observacao", with: @compra.observacao
-    fill_in "Valor total compra", with: @compra.valor_total_compra
+    fill_in "Valor total", with: @compra.valor_total
     click_on "Update Compra"
 
     assert_text "Compra was successfully updated"

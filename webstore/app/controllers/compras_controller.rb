@@ -1,5 +1,6 @@
 class ComprasController < ApplicationController
   before_action :set_compra, only: %i[ show edit update destroy ]
+  autocomplete :fornecedor, :name
 
   # GET /compras or /compras.json
   def index
@@ -65,6 +66,6 @@ class ComprasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def compra_params
-      params.require(:compra).permit(:data, :fornecedor_id, :observacao, :valor_total_compra)
+      params.require(:compra).permit(:data, :fornecedor_id, :observacao, :valor_total)
     end
 end

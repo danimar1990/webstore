@@ -7,12 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("@popperjs/core")
+require('jquery')
+//= require_tree .
+//= require jquery_ujs
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
+require("../stylesheets/application.scss")
 require("bootstrap")
 require("datatables.net-bs5")
-require("../stylesheets/application.scss")
-
-import $ from 'jquery';
-global.$ = jQuery;
 
 $(document).on('turbolinks:load', () => {
   $('#datatable').DataTable();

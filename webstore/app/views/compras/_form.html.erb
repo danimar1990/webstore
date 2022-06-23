@@ -13,12 +13,20 @@
 
   <div class="field">
     <%= form.label :data %>
-    <%= form.datetime_select :data %>
+    <%= form.date_select :data %>
   </div>
 
+    <%# <%= autocomplete_field :fornecedor, :nome,
+      autocomplete_fornecedor_nome_path,
+      :update_elements => {:id => "##{form_tag_id(f.object_name, :fornecedor_id)}"},
+      :id => form_tag_id(f.object_name, :autocomplete),
+      :value => f.object.fornecedor.try(:nome),
+      :placeholder => "Nome do centro de custo",
+      :class => "span-8" %>
+
   <div class="field">
+    <%= form.autocomplete_field :nome, compras_autocomplete_fornecedor_nome_path %>
     <%= form.label :fornecedor_id %>
-    <%= form.text_field :fornecedor_id %>
   </div>
 
   <div class="field">
@@ -27,8 +35,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :valor_total_compra %>
-    <%= form.text_field :valor_total_compra %>
+    <%= form.label :valor_total %>
+    <%= form.text_field :valor_total %>
   </div>
 
   <div class="actions">

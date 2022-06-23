@@ -17,7 +17,7 @@ class ComprasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create compra" do
     assert_difference('Compra.count') do
-      post compras_url, params: { compra: { data: @compra.data, fornecedor_id: @compra.fornecedor_id, observacao: @compra.observacao, valor_total_compra: @compra.valor_total_compra } }
+      post compras_url, params: { compra: { data: @compra.data, fornecedor_id: @compra.fornecedor_id, observacao: @compra.observacao, valor_total: @compra.valor_total } }
     end
 
     assert_redirected_to compra_url(Compra.last)
@@ -34,7 +34,7 @@ class ComprasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update compra" do
-    patch compra_url(@compra), params: { compra: { data: @compra.data, fornecedor_id: @compra.fornecedor_id, observacao: @compra.observacao, valor_total_compra: @compra.valor_total_compra } }
+    patch compra_url(@compra), params: { compra: { data: @compra.data, fornecedor_id: @compra.fornecedor_id, observacao: @compra.observacao, valor_total: @compra.valor_total } }
     assert_redirected_to compra_url(@compra)
   end
 
