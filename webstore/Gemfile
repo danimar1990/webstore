@@ -19,7 +19,19 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 # This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.5'
+
+# jQuery UI's JavaScript, CSS, and image files packaged for the Rails 3.1+ asset pipeline
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+gem 'rubocop', '~> 1.30'
+
+# Unobtrusive nested forms handling, using jQuery. Use this and discover cocoon-heaven.
+gem 'cocoon', '~> 1.2'
+
+# Use jQuery's autocomplete plugin with Rails 4+.
+gem 'rails-jquery-autocomplete', '~> 1.0', '>= 1.0.5'
 
 # Font-Awesome SASS gem for use in Ruby projects
 gem 'font-awesome-sass'
