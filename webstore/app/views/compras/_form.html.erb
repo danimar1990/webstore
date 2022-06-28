@@ -1,7 +1,7 @@
-<%= form_with(model: compra, local: true) do |form| %>
+<%= form_with(model: compra, local: true, :class => 'form-floating') do |form| %>
   <% if compra.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
+      <h2><%= pluralize(compra.errors.count, "error") %> erros impediram que esta compra fosse salva:</h2>
 
       <ul>
         <% compra.errors.full_messages.each do |message| %>
@@ -11,35 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.date_select :data %>
-  </div>
+	<div class="row">
+	  <div class="col-md-6">
+	    <div class="form-floating mb-3">
+	      <%= form.date_field :data, {class: "form-control"} %>
+	      <%= form.label :data %>
+	    </div>
+	  </div>
 
-    <%# <%= autocomplete_field :fornecedor, :nome,
-      autocomplete_fornecedor_nome_path,
-      :update_elements => {:id => "##{form_tag_id(f.object_name, :fornecedor_id)}"},
-      :id => form_tag_id(f.object_name, :autocomplete),
-      :value => f.object.fornecedor.try(:nome),
-      :placeholder => "Nome do centro de custo",
-      :class => "span-8" %>
+	  <div class="col-md-6">
+	    <div class="form-floating mb-3">
+	    <%= form.text_field :valor_total, {class: "form-control"} %>
+	    <%= form.label :valor_total %>
+	    </div>
+	  </div>
 
-  <div class="field">
-    <%= form.autocomplete_field :nome, compras_autocomplete_fornecedor_nome_path %>
-    <%= form.label :fornecedor_id %>
-  </div>
+	  <div class="col-md-12">
+	    <div class="form-floating mb-3">
+	    <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"})%>
+	      <%= form.label :fornecedor %>
+	    </div>
+	  </div>
 
-  <div class="field">
-    <%= form.label :observacao %>
-    <%= form.text_area :observacao %>
-  </div>
+	  <div class="col-md-12">
+	    <div class="form-floating mb-3">
+	      <%= form.text_area :observacao, {class: "form-control"} %>
+	      <%= form.label :observacao %>
+	    </div>
+	  </div>
 
-  <div class="field">
-    <%= form.label :valor_total %>
-    <%= form.text_field :valor_total %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+	  <div class="actions pt-2 mb-2">
+	    <%= form.submit(:class => 'btn btn-success') %>
+	  </div>
+	</div>
 <% end %>

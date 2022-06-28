@@ -1,6 +1,5 @@
 class ComprasController < ApplicationController
   before_action :set_compra, only: %i[ show edit update destroy ]
-  autocomplete :fornecedor, :name
 
   # GET /compras or /compras.json
   def index

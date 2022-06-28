@@ -13,6 +13,8 @@ module Webstore
 	config.time_zone = 'Brasilia'
     config.i18n.available_locales = ['pt-BR']
     config.i18n.default_locale = :'pt-BR'
+	Date::DATE_FORMATS[:default] = "%d/%m/%Y"
+	Time::DATE_FORMATS[:default] = "%H:%M"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
