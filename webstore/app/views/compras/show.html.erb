@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h2>Exibindo Compra</h2>
 
-<p>
-  <strong>Data:</strong>
-  <%= @compra.data %>
-</p>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Fornecedor:</strong>
-  <%= @compra.fornecedor_id %>
-</p>
+<fieldset disabled>
+  <div class="mb-3">
+    <label class="form-label">Data:</label>
+    <input type="text" class="form-control" value="<%= @compra.data %>">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Fornecedor:</label>
+    <input type="text" class="form-control" value="<%= @compra.fornecedor_id %>">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Observacao:</label>
+    <input type="text" class="form-control" value="<%= @compra.observacao %>">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Valor total:</label>
+    <input type="text" class="form-control" value="<%= @compra.valor_total %>">
+  </div>
+</fieldset>
 
-<p>
-  <strong>Observacao:</strong>
-  <%= @compra.observacao %>
-</p>
-
-<p>
-  <strong>Valor total:</strong>
-  <%= @compra.valor_total %>
-</p>
-
-<%= link_to 'Edit', edit_compra_path(@compra) %> |
-<%= link_to 'Back', compras_path %>
+<%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-warning text-white" %>
+<%= link_to 'Voltar', compras_path, class: "btn btn-secondary text-white" %>

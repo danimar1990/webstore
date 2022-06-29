@@ -1,15 +1,21 @@
 <h2>Exibindo Fornecedor</h2>
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @fornecedor.nome %>
-</p>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Preço de venda:</strong>
-  <%= @fornecedor.cpf_cnpj %>
-</p>
+<fieldset disabled>
+  <div class="mb-3">
+    <label class="form-label">Nome:</label>
+    <input type="text" class="form-control" value="<%= @fornecedor.nome %>">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">CPF/CNPJ:</label>
+    <input type="text" class="form-control" value="<%= @fornecedor.cpf_cnpj %>">
+  </div>
+</fieldset>
 
 <%= link_to 'Editar', edit_fornecedor_path(@fornecedor), class: "btn btn-warning text-white" %>
 <%= link_to 'Voltar', fornecedores_path, class: "btn btn-secondary text-white" %>

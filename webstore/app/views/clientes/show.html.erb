@@ -1,15 +1,22 @@
 <h2>Exibindo Cliente</h2>
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @cliente.nome %>
-</p>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Preço de venda:</strong>
-  <%= @cliente.cpf_cnpj %>
-</p>
+
+<fieldset disabled>
+  <div class="mb-3">
+    <label class="form-label">Nome:</label>
+    <input type="text" class="form-control" value="<%= @cliente.nome %>">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">CPF/CNPJ:</label>
+    <input type="text" class="form-control" value="<%= @cliente.cpf_cnpj %>">
+  </div>
+</fieldset>
 
 <%= link_to 'Editar', edit_cliente_path(@cliente), class: "btn btn-warning text-white" %>
 <%= link_to 'Voltar', clientes_path, class: "btn btn-secondary text-white" %>
