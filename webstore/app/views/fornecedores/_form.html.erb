@@ -1,13 +1,13 @@
 <%= form_with(model: fornecedor, local: true, :class => 'form-floating') do |form| %>
   <% if fornecedor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(fornecedor.errors.count, "error") %> erros impediram que este fornecedor fosse salvo:</h2>
-
-      <ul>
-        <% fornecedor.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <div class="alert alert-danger"><%= pluralize(fornecedor.errors.count, "erros") %> impediram que este fornecedor fosse salvo:
+				<ul>
+					<% fornecedor.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
     </div>
   <% end %>
 

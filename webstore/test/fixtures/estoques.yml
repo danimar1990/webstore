@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  competencia: 1
+  qtde_entrada: 9.99
+  qtde_saida: 9.99
+  qtde_estoque: 9.99
+
+two:
+  competencia: 1
+  qtde_entrada: 9.99
+  qtde_saida: 9.99
+  qtde_estoque: 9.99

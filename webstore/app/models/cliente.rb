@@ -1,6 +1,4 @@
 class Cliente < ApplicationRecord
-  validates_presence_of :nome
-  validates_presence_of :cpf_cnpj
-
-  validates_uniqueness_of :cpf_cnpj
+  validates :nome, :cpf_cnpj, presence: true
+  validates :cpf_cnpj, uniqueness: true
 end

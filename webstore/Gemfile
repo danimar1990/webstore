@@ -11,26 +11,28 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide
 gem 'rubocop', '~> 1.30'
-# Unobtrusive nested forms handling, using jQuery. Use this and discover cocoon-heaven.
+# Unobtrusive nested forms handling, using jQuery. Use this and discover cocoon-heaven
 gem 'cocoon', '~> 1.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-# Sprockets is a Rack-based asset packaging system that concatenates and serves JavaScript, CoffeeScript, CSS, LESS, Sass, and SCSS.
+# Sprockets is a Rack-based asset packaging system that concatenates and serves JavaScript, CoffeeScript, CSS, LESS, Sass, and SCSS
 gem 'sprockets', '~> 3.5', '>= 3.5.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0', '>= 5.0.4'
 # Integrate SassC-Ruby into Rails.
 gem 'sassc-rails', '2.1.2'
-# This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
+# This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application
 gem 'jquery-rails', '~> 4.5'
 # jQuery UI's JavaScript, CSS, and image files packaged for the Rails 3.1+ asset pipeline
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-# Use jQuery's autocomplete plugin with Rails 4+.
-gem 'rails-jquery-autocomplete', '~> 1.0', '>= 1.0.5'
+# Use jQuery's autocomplete plugin with Rails
+gem 'rails3-jquery-autocomplete', '~> 1.0', '>= 1.0.15'
+# Ruby C bindings to the excellent Yajl JSON stream-based parser library
+gem 'yajl-ruby', '~> 1.4', '>= 1.4.1', require: 'yajl'
 # Font-Awesome SASS gem for use in Ruby projects
 gem 'font-awesome-sass'
 # Reduces boot times through caching; required in config/boot.rb

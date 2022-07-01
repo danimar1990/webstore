@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   resources :clientes
   resources :produtos
   resources :fornecedores
-  get '/fornecedores' => 'fornecedores#get_nome_fornecedores_by_term', as: 'get_nome_fornecedores_by_term'
-
-
+  resources :acs do
+    collection do
+			get :autocomplete_fornecedor_nome
+    end
+  end
+	
   root to: "welcome#index"
 end

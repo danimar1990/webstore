@@ -57,11 +57,6 @@ class FornecedoresController < ApplicationController
     end
   end
 
-  def get_nome_fornecedores_by_term
-	@fornecedores = Fornecedor.search(params[:term]) 
-	render json: @fornecedores .map(&:nome).uniq 
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fornecedor

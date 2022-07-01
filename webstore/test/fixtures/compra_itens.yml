@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vlr_unitario: 9.99
+  vlr_total: 9.99
+  quantidade: 9.99
+
+two:
+  vlr_unitario: 9.99
+  vlr_total: 9.99
+  quantidade: 9.99

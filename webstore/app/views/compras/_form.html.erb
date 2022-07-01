@@ -1,13 +1,13 @@
 <%= form_with(model: compra, local: true, :class => 'form-floating') do |form| %>
   <% if compra.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(compra.errors.count, "error") %> erros impediram que esta compra fosse salva:</h2>
-
-      <ul>
-        <% compra.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <div class="alert alert-danger"><%= pluralize(compra.errors.count, "erros") %> impediram que este fornecedor fosse salvo:
+				<ul>
+					<% compra.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
     </div>
   <% end %>
 
@@ -28,10 +28,17 @@
 
 	  <div class="col-md-12">
 	    <div class="form-floating mb-3">
-	    <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"})%>
+	    <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"}) %>
 	      <%= form.label :fornecedor %>
 	    </div>
 	  </div>
+
+    <%# <div class="field clear">
+      <%= form.label :fornecedor, :class => 'col-md-12' 
+      <%= autocomplete_field :fornecedor, :nome, autocomplete_fornecedor_nome_acs_path,
+        :value => form.object.fornecedor.try(:nome) 
+      <%= form.hidden_field :fornecedor_id 
+    </div> %>
 
 	  <div class="col-md-12">
 	    <div class="form-floating mb-3">

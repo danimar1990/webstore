@@ -1,0 +1,39 @@
+<style>
+  /* ESTRUCT */
+   #msg-cont {height:420px; vertical-align:middle; background:url(../images/prod/home_404display.gif) no-repeat right center; } 
+  /* AUX */
+  .clear {clear:both;}
+  .wht { background-color:#faf9f9}
+  .hack { width:420px;padding:30px 0 0 30px;  display:block;}
+  
+  /* TEXTOS*/
+  #content h1 { font-size: 42px; margin:0; padding:0; }
+  #content h1 span { color: #bbb; }
+    #content   h3 { margin: 1.5em 0 0.5em; }
+    #content   p { margin: 1em 0; }
+    #content p strong {font-size:20px;}
+    #content   ul { padding: 0 0 0 40px; margin: 1em 0; }
+    #content small { font:normal 10px/10px Arial, Helvetica, Verdana, sans-serif; padding-left:20px; }
+    #content td p, td small, td h1, td h3 {padding-left:20px;}   
+</style>
+
+<div id="msg-cont" class="wide wht clear" style="background:none"> 
+  <span class="hack">
+    <h1>Ooops! <span>:(</span></h1>
+    <p><strong>Desculpe, ocorreu algum erro (Acesso Negado)!</strong></p>
+    <p>Isso aconteceu por um dos motivos:
+      <ul>
+        <li>O endereço digitado está errado.</li>
+        <li>Você não está logado! <a href="/users/sign_in">Logar-se no sistema!</a> </li>
+        <li>Este link não se encontra mais disponível.</li>
+        <li>Este link tem controle de acesso e você não tem permissão a ele.</li>
+      </ul>
+    </p>
+    <div>
+      <%= params[:exception] %>
+    </div>
+  </span>
+</div>
+
+
+
