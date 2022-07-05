@@ -13,9 +13,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
-	<%= javascript_include_tag "autocomplete-rails.js" %>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.3/rails.min.js" integrity="sha512-yDJWVxuRSkQa1u9/Zif6Gh93Gk0Urboz98JLEPcERMQ+pTHz/c27d0Xz08G+lgutFyKklB9UILtnhG6bth6B4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js" integrity="sha512-TToQDr91fBeG4RE5RjMl/tqNAo35hSRR4cbIFasiV2AAMQ6yKXXYhdSdEpUcRE6bqsTiB+FPLPls4ZAFMoK5WA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@nathanvda/cocoon@1.2.14/cocoon.min.js" crossorigin="anonymous"></script>
+	<%= javascript_include_tag "autocomplete-rails.js" %>
 	<link rel="icon" href="/favicon.png">    
 </head>
 <body class="d-flex flex-column h-100">
@@ -48,6 +49,7 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="/compras"><i class="fa fa-caret-right"></i> Compras</a></li>
+								<li><a class="dropdown-item" href="/vendas"><i class="fa fa-caret-right"></i> Vendas</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -58,9 +60,6 @@
 								<li><a class="dropdown-item" href="#"><i class="fa fa-caret-right"></i> Contas a pagar</a></li>
 								<li><a class="dropdown-item" href="#"><i class="fa fa-caret-right"></i> Contas a receber</a></li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"><i class="fa fa-cart-plus"></i> Vendas</a>
 						</li>
 					</ul>
 				</div>

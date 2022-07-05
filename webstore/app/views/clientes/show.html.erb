@@ -8,15 +8,20 @@
 
 
 <fieldset disabled>
-  <div class="mb-3">
-    <label class="form-label">Nome:</label>
-    <input type="text" class="form-control" value="<%= @cliente.nome %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">CPF/CNPJ:</label>
-    <input type="text" class="form-control" value="<%= @cliente.cpf_cnpj %>">
-  </div>
+<div class="row">
+	<div class="col-md-6">
+  	<div class="mb-3">
+  	  <label class="form-label">Nome:</label>
+  	  <input type="text" class="form-control" value="<%= @cliente.nome %>">
+  	</div>
+	</div>
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label class="form-label">CPF/CNPJ:</label>
+			<input type="text" class="form-control" value="<%= @cliente.cpf_cnpj %>">
+		</div>
+	</div>
+</div>
 </fieldset>
-
-<%= link_to 'Editar', edit_cliente_path(@cliente), class: "btn btn-warning text-white" %>
 <%= link_to 'Voltar', clientes_path, class: "btn btn-secondary text-white" %>
+<%= link_to 'Editar', edit_cliente_path(@cliente), class: "btn btn-warning text-white" %>

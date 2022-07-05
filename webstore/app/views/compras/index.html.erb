@@ -14,7 +14,7 @@
     <% @compras.each do |compra| %>
       <tr>
         <td class="align-middle"><%= compra.data %></td>
-        <td class="align-middle"><%= compra.fornecedor_id %></td>
+        <td class="align-middle"><%= compra.fornecedor.nome %></td>
         <td class="align-middle">R$ <%= compra.valor_total %></td>
         <td>
 			<%= link_to 'Exibir', compra, class: "btn btn-info text-white" %>

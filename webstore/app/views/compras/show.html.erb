@@ -7,23 +7,67 @@
 <% end %>
 
 <fieldset disabled>
-  <div class="mb-3">
-    <label class="form-label">Data:</label>
-    <input type="text" class="form-control" value="<%= @compra.data %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Fornecedor:</label>
-    <input type="text" class="form-control" value="<%= @compra.fornecedor_id %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Observacao:</label>
-    <input type="text" class="form-control" value="<%= @compra.observacao %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Valor total:</label>
-    <input type="text" class="form-control" value="<%= @compra.valor_total %>">
-  </div>
+<div class="row">
+	<div class="col-md-2">
+		<div class="mb-3">
+			<label class="form-label">Data:</label>
+			<input type="text" class="form-control" value="<%= @compra.data %>">
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="mb-3">
+			<label class="form-label">Fornecedor:</label>
+			<input type="text" class="form-control" value="<%= @compra.fornecedor.nome %>">
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="mb-3">
+			<label class="form-label">Valor total:</label>
+			<input type="text" class="form-control" value="<%= @compra.valor_total %>">
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="mb-3">
+			<label class="form-label">Observacao:</label>
+			<input type="text" class="form-control" value="<%= @compra.observacao %>">
+		</div>
+	</div>
+</div>
+</fieldset>
+<hr>
+<h5>Produtos</h5>
+<fieldset disabled>
+<div class="row">
+	<div class="col-md-2">
+		<div class="mb-3">
+			<label class="form-label">Data:</label>
+			<input type="text" class="form-control" value="<%= @compra.data %>">
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="mb-3">
+			<label class="form-label">Fornecedor:</label>
+			<input type="text" class="form-control" value="<%= @compra.fornecedor.nome %>">
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="mb-3">
+			<label class="form-label">Valor total:</label>
+			<input type="text" class="form-control" value="<%= @compra.valor_total %>">
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="mb-3">
+			<label class="form-label">Observacao:</label>
+			<input type="text" class="form-control" value="<%= @compra.observacao %>">
+		</div>
+	</div>
+</div>
 </fieldset>
 
-<%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-warning text-white" %>
 <%= link_to 'Voltar', compras_path, class: "btn btn-secondary text-white" %>
+<%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-warning text-white" %>

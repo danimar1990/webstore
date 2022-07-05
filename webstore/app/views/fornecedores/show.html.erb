@@ -6,16 +6,22 @@
   </div>
 <% end %>
 
-<fieldset disabled>
-  <div class="mb-3">
-    <label class="form-label">Nome:</label>
-    <input type="text" class="form-control" value="<%= @fornecedor.nome %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">CPF/CNPJ:</label>
-    <input type="text" class="form-control" value="<%= @fornecedor.cpf_cnpj %>">
-  </div>
-</fieldset>
 
-<%= link_to 'Editar', edit_fornecedor_path(@fornecedor), class: "btn btn-warning text-white" %>
+<fieldset disabled>
+<div class="row">
+	<div class="col-md-6">
+  	<div class="mb-3">
+  	  <label class="form-label">Nome:</label>
+  	  <input type="text" class="form-control" value="<%= @fornecedor.nome %>">
+  	</div>
+	</div>
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label class="form-label">CPF/CNPJ:</label>
+			<input type="text" class="form-control" value="<%= @fornecedor.cpf_cnpj %>">
+		</div>
+	</div>
+</div>
+</fieldset>
 <%= link_to 'Voltar', fornecedores_path, class: "btn btn-secondary text-white" %>
+<%= link_to 'Editar', edit_fornecedor_path(@fornecedor), class: "btn btn-warning text-white" %>

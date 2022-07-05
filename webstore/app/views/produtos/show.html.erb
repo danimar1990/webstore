@@ -7,15 +7,21 @@
 <% end %>
 
 <fieldset disabled>
-  <div class="mb-3">
-    <label class="form-label">Nome:</label>
-    <input type="text" class="form-control" value="<%= @produto.nome %>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Preço de venda:</label>
-    <input type="text" class="form-control" value="<%= @produto.preco_venda %>">
-  </div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="mb-3">
+				<label class="form-label">Nome:</label>
+				<input type="text" class="form-control" value="<%= @produto.nome %>">
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="mb-3">
+				<label class="form-label">Preço de venda:</label>
+				<input type="text" class="form-control" value="<%= @produto.preco_venda %>">
+			</div>
+		</div>
+	</div>
 </fieldset>
 
-<%= link_to 'Editar', edit_produto_path(@produto), class: "btn btn-warning text-white" %>
 <%= link_to 'Voltar', produtos_path, class: "btn btn-secondary text-white" %>
+<%= link_to 'Editar', edit_produto_path(@produto), class: "btn btn-warning text-white" %>

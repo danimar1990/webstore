@@ -10,7 +10,6 @@
 			</div>
     </div>
   <% end %>
-
 	<div class="row">
 	  <div class="col-md-6">
 	    <div class="form-floating mb-3">
@@ -18,36 +17,57 @@
 	      <%= form.label :data %>
 	    </div>
 	  </div>
-
 	  <div class="col-md-6">
 	    <div class="form-floating mb-3">
-	    <%= form.text_field :valor_total, {class: "form-control"} %>
+	    <%= form.number_field :valor_total, {class: "form-control", min: "0.00", max: "999999.00", step: "0.01"} %>
 	    <%= form.label :valor_total %>
 	    </div>
 	  </div>
-
+	</div>
+	<div class="row">
 	  <div class="col-md-12">
 	    <div class="form-floating mb-3">
-	    <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"}) %>
-	      <%= form.label :fornecedor %>
+
+				<div class="clear" id="nome_<%= form_tag_id(form.object_name, :fornecedor_id) %>">
+	      	<%= form.label :fornecedor %>
+					<%= autocomplete_field :fornecedor, :nome,
+						autocomplete_fornecedor_nome_acs_path,
+						:update_elements => { :id => "#"+ form_tag_id(form.object_name, :fornecedor_id) },
+						:class => "form-control",
+						:id_element => "#"+ form_tag_id(form.object_name, :fornecedor_id),
+						:value => form.object.fornecedor.try(:nome) %>
+					<%= form.hidden_field :fornecedor_id %>
+				</div>
+
+				<%# <%= form.label :fornecedor %>
+	    	<%# <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"}) %>
 	    </div>
 	  </div>
-
-    <%# <div class="field clear">
-      <%= form.label :fornecedor, :class => 'col-md-12' 
-      <%= autocomplete_field :fornecedor, :nome, autocomplete_fornecedor_nome_acs_path,
-        :value => form.object.fornecedor.try(:nome) 
-      <%= form.hidden_field :fornecedor_id 
-    </div> %>
-
+	</div>
+	<div class="row">
 	  <div class="col-md-12">
 	    <div class="form-floating mb-3">
 	      <%= form.text_area :observacao, {class: "form-control"} %>
 	      <%= form.label :observacao %>
 	    </div>
 	  </div>
-
+	</div>
+	<hr>
+	<div class="row">
+    <h5>Produtos</h5>
+    <div id="compra_itens">
+      <%= form.fields_for :compra_itens do |compra_item| %>
+        <%= render 'compra_item_fields', f: compra_item %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "+ Adicionar produto", form, :compra_itens, class: "badge bg-primary mb-2" %>
+      </div>
+    </div>
+	</div>
+	<div class="row">
 	  <div class="actions pt-2 mb-2">
+			<hr>
+			<%= link_to 'Voltar', compras_path, class: "btn btn-secondary text-white" %>
 	    <%= form.submit(:class => 'btn btn-success') %>
 	  </div>
 	</div>

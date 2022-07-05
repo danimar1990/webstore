@@ -12,20 +12,21 @@
   <% end %>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-6">
       <div class="form-floating mb-3">
   	    <%= form.text_field :nome, {class: "form-control"} %>
         <%= form.label :nome %>
       </div>
-	</div>
-    <div class="col">
+		</div>
+    <div class="col-md-6">
       <div class="form-floating mb-3">
   	    <%= form.text_field :preco_venda, {class: "form-control"} %>
         <%= form.label :preco_venda %>
       </div>
+		</div>
+		<div class="actions pt-2 mb-2">
+			<%= link_to 'Voltar', produtos_path, class: "btn btn-secondary text-white" %>
+			<%= form.submit(:class => 'btn btn-success') %>
+		</div>
 	</div>
-    <div class="actions pt-2 mb-2">
-      <%= form.submit(:class => 'btn btn-success') %>
-    </div>
-  </div>
 <% end %>

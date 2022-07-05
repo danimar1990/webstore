@@ -52,3 +52,7 @@
         fornecedor: "Fornecedor"
         observacao: "Observações"
         valor_total: "Valor total"
+      compra_item:
+        vlr_unitario: "Valor unitário"
+        vlr_total: "Valor total"
+        quantidade: "Quantidade"
