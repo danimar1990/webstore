@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_122629) do
+ActiveRecord::Schema.define(version: 2022_07_01_182031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2022_06_23_122629) do
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.string "cpf_cnpj"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "compra_itens", force: :cascade do |t|
+    t.integer "compra_id"
+    t.integer "produto_id"
+    t.decimal "vlr_unitario"
+    t.decimal "vlr_total"
+    t.decimal "quantidade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,6 +42,15 @@ ActiveRecord::Schema.define(version: 2022_06_23_122629) do
     t.index ["fornecedor_id"], name: "index_compras_on_fornecedor_id"
   end
 
+  create_table "estoques", force: :cascade do |t|
+    t.integer "competencia"
+    t.decimal "qtde_entrada"
+    t.decimal "qtde_saida"
+    t.decimal "qtde_estoque"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "fornecedores", force: :cascade do |t|
     t.string "nome"
     t.string "cpf_cnpj"
@@ -42,6 +61,16 @@ ActiveRecord::Schema.define(version: 2022_06_23_122629) do
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.decimal "preco_venda"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "venda_itens", force: :cascade do |t|
+    t.integer "compra_id"
+    t.integer "produto_id"
+    t.decimal "vlr_unitario"
+    t.decimal "vlr_total"
+    t.decimal "quantidade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
