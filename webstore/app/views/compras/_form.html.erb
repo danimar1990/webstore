@@ -27,7 +27,6 @@
 	<div class="row">
 	  <div class="col-md-12">
 	    <div class="form-floating mb-3">
-
 				<div class="clear" id="nome_<%= form_tag_id(form.object_name, :fornecedor_id) %>">
 	      	<%= form.label :fornecedor %>
 					<%= autocomplete_field :fornecedor, :nome,
@@ -38,9 +37,6 @@
 						:value => form.object.fornecedor.try(:nome) %>
 					<%= form.hidden_field :fornecedor_id %>
 				</div>
-
-				<%# <%= form.label :fornecedor %>
-	    	<%# <%= form.collection_select(:fornecedor_id, Fornecedor.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"}) %>
 	    </div>
 	  </div>
 	</div>
