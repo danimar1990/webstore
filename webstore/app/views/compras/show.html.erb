@@ -7,67 +7,133 @@
 <% end %>
 
 <fieldset disabled>
-<div class="row">
-	<div class="col-md-2">
-		<div class="mb-3">
-			<label class="form-label">Data:</label>
-			<input type="text" class="form-control" value="<%= @compra.data %>">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="mb-3">
+				<label class="form-label">Data:</label>
+				<input type="text" class="form-control" value="<%= @compra.try(:data) %>">
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="mb-3">
+				<label class="form-label">Fornecedor:</label>
+				<input type="text" class="form-control" value="<%= @compra.fornecedor.try(:nome) %>">
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="mb-3">
+				<label class="form-label">Valor total:</label>
+				<input type="text" class="form-control" value="<%= @compra.try(:valor_total) %>">
+			</div>
 		</div>
 	</div>
-	<div class="col-md-8">
-		<div class="mb-3">
-			<label class="form-label">Fornecedor:</label>
-			<input type="text" class="form-control" value="<%= @compra.fornecedor.nome %>">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="mb-3">
+				<label class="form-label">Observações:</label>
+				<input type="text" class="form-control" value="<%= @compra.try(:observacao) %>">
+			</div>
 		</div>
 	</div>
-	<div class="col-md-2">
-		<div class="mb-3">
-			<label class="form-label">Valor total:</label>
-			<input type="text" class="form-control" value="<%= @compra.valor_total %>">
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div class="mb-3">
-			<label class="form-label">Observacao:</label>
-			<input type="text" class="form-control" value="<%= @compra.observacao %>">
-		</div>
-	</div>
-</div>
 </fieldset>
 <hr>
-<h5>Produtos</h5>
-<fieldset disabled>
-<div class="row">
-	<div class="col-md-2">
-		<div class="mb-3">
-			<label class="form-label">Data:</label>
-			<input type="text" class="form-control" value="<%= @compra.data %>">
-		</div>
-	</div>
-	<div class="col-md-8">
-		<div class="mb-3">
-			<label class="form-label">Fornecedor:</label>
-			<input type="text" class="form-control" value="<%= @compra.fornecedor.nome %>">
-		</div>
-	</div>
-	<div class="col-md-2">
-		<div class="mb-3">
-			<label class="form-label">Valor total:</label>
-			<input type="text" class="form-control" value="<%= @compra.valor_total %>">
-		</div>
-	</div>
-</div>
 <div class="row">
 	<div class="col-md-12">
-		<div class="mb-3">
-			<label class="form-label">Observacao:</label>
-			<input type="text" class="form-control" value="<%= @compra.observacao %>">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos-tab-pane" type="button" role="tab" aria-controls="produtos-tab-pane" aria-selected="true">Produtos</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="pagamento-tab" data-bs-toggle="tab" data-bs-target="#pagamento-tab-pane" type="button" role="tab" aria-controls="pagamento-tab-pane" aria-selected="false">Pagamento</button>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="produtos-tab-pane" role="tabpanel" aria-labelledby="produtos-tab" tabindex="0">
+				<div class="row">
+					<h5 class="mt-3 mb-3">Produtos da compra</h5>
+					<fieldset disabled>
+						<div class="row">
+							<div class="col-md-6">
+								<label class="form-label">Produto</label>
+							</div>
+							<div class="col-md-2">
+								<label class="form-label">Quantidade</label>
+							</div>
+							<div class="col-md-2">
+								<label class="form-label">Valor unitário</label>
+							</div>
+							<div class="col-md-2">
+								<label class="form-label">Valor total</label>
+							</div>
+						</div>
+						<% @compra.compra_itens.each do |ci| %>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= ci.produto.try(:nome) %>">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= ci.try(:quantidade) %>">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= ci.try(:vlr_unitario) %>">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= ci.try(:vlr_total) %>">
+								</div>
+							</div>
+						</div>
+						<% end %>
+					</fieldset>
+				</div>
+			</div>			
+			<div class="tab-pane fade" id="pagamento-tab-pane" role="tabpanel" aria-labelledby="pagamento-tab" tabindex="0">
+				<div class="row">
+					<h5 class="mt-3 mb-3">Forma de pagamento escolhida</h5>
+					<fieldset disabled>
+						<div class="row">
+							<div class="col-md-4">
+								<label class="form-label">Nro Parcela</label>
+							</div>
+							<div class="col-md-4">
+								<label class="form-label">valor parcela</label>
+							</div>
+							<div class="col-md-4">
+								<label class="form-label">Vencimento</label>
+							</div>
+						</div>
+						<% @compra.compras_a_pagar.each do |cp| %>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= cp.try(:nro_parcela) %>">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= cp.try(:vlr_parcela) %>">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<input type="text" class="form-control" value="<%= cp.try(:data_vencto) %>">
+								</div>
+							</div>
+						</div>
+						<% end %>
+					</fieldset>
+				</div>	
+			</div>
 		</div>
 	</div>
 </div>
-</fieldset>
+<hr>
 
 <%= link_to 'Voltar', compras_path, class: "btn btn-secondary text-white" %>
 <%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-warning text-white" %>

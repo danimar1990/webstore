@@ -20,4 +20,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'Fornecedor', 'Fornecedores'
   inflect.irregular :compra_item, :compra_itens
   inflect.irregular :venda_item, :venda_itens
+  inflect.irregular :compra_a_pagar, :compras_a_pagar
 end

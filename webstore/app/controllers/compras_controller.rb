@@ -1,6 +1,6 @@
 class ComprasController < ApplicationController
   before_action :set_compra, only: %i[ show edit update destroy ]
-	autocomplete :fornecedor, :nome
+
   # GET /compras or /compras.json
   def index
     @compras = Compra.all
@@ -14,6 +14,7 @@ class ComprasController < ApplicationController
   def new
     @compra = Compra.new
 		@compra_itens = @compra.compra_itens.build
+		@compras_a_pagar = @compra.compras_a_pagar.build
   end
 
   # GET /compras/1/edit
@@ -66,6 +67,10 @@ class ComprasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def compra_params
-      params.require(:compra).permit(:data, :fornecedor_id, :observacao, :valor_total, compra_itens_attributes: [:id, :compra_id, :produto_id, :vlr_unitario, :vlr_total, :quantidade, :_destroy])
+      params.require(:compra).permit(
+				:data, :fornecedor_id, :observacao, :valor_total, 
+				compra_itens_attributes: [:id, :compra_id, :produto_id, :vlr_unitario, :vlr_total, :quantidade, :_destroy], 
+				compras_a_pagar_attributes: [:id, :compra_id, :nro_parcela, :vlr_parcela, :data_vencto, :_destroy]
+			)
     end
 end

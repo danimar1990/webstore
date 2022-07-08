@@ -37,6 +37,7 @@
       produto: "Produto"
       compra: "Compra"
       venda: "Venda"
+      compra_a_pagar: "Compra a pagar"
     attributes:
       fornecedor:
         nome: "Nome do fornecedor"
@@ -56,3 +57,7 @@
         vlr_unitario: "Valor unitário"
         vlr_total: "Valor total"
         quantidade: "Quantidade"
+      compra_a_pagar:
+        nro_parcela: "Nro parcela"
+        vlr_parcela: "Valor parcela"
+        data_vencto: "Vencimento"

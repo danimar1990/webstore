@@ -1,10 +1,12 @@
 class Compra < ApplicationRecord
 	has_many :compra_itens, inverse_of: :compra, dependent: :destroy
+	has_many :compras_a_pagar, inverse_of: :compra, dependent: :destroy
 
-  accepts_nested_attributes_for :compra_itens, reject_if: :all_blank, allow_destroy: true
-
-  belongs_to :fornecedor
-
+	belongs_to :fornecedor
+	
+  accepts_nested_attributes_for :compra_itens, allow_destroy: true
+  accepts_nested_attributes_for :compras_a_pagar, allow_destroy: true
+	
   validates :data, :fornecedor_id, :valor_total, presence: true
 
 	def get_competencia

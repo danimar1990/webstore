@@ -1,11 +1,10 @@
 class CompraItem < ApplicationRecord
 	belongs_to :compra, inverse_of: :compra_itens
+	belongs_to :produto
 
-	before_save :calcular_valor_unitario
+	before_save :calcular_valor_total
 
-	validates :compra_id, :produto_id, :vlr_unitario, :vlr_total, presence: true
-
-	def calcular_valor_unitario
-		self.vlr_unitario = self.vlr_total / self.quantidade
+	def calcular_valor_total
+		self.vlr_total = self.quantidade * self.vlr_unitario
 	end
 end

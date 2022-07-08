@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_01_182031) do
+ActiveRecord::Schema.define(version: 2022_07_01_125828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +40,6 @@ ActiveRecord::Schema.define(version: 2022_07_01_182031) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["fornecedor_id"], name: "index_compras_on_fornecedor_id"
-  end
-
-  create_table "estoques", force: :cascade do |t|
-    t.integer "competencia"
-    t.decimal "qtde_entrada"
-    t.decimal "qtde_saida"
-    t.decimal "qtde_estoque"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "fornecedores", force: :cascade do |t|
