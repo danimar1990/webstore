@@ -1,0 +1,5 @@
+﻿<%
+  @form_compra = nil
+  form_for(@compra, :validate => true) { |form| @form_compra = form }
+%>
+$("#compras_a_pagar").html("<%= escape_javascript( render 'compras_a_pagar_parcelas', :form => @form_compra ) %>") ;

@@ -19,6 +19,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/@nathanvda/cocoon@1.2.14/cocoon.min.js" crossorigin="anonymous"></script>
 	<%= javascript_include_tag "autocomplete-rails.js" %>
 	<%= favicon_link_tag asset_path("favicon.png") %>
+	<style>a {text-decoration: none;} a:hover, a:focus { color: #c4c0c0; }</style>
 </head>
 <body class="d-flex flex-column h-100">
 	<div class="container">
@@ -93,17 +94,27 @@
 			</div>
 		</footer>
 	</div>
-	<script>
-		$(document).ready(function() {
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+		$(function(){
 			$('#datatable').DataTable({
 				language: {
 					url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
 				}
 			});
+			$("#moeda").maskMoney(
+				{
+					symbol:'R$ ', 
+					showSymbol:true,
+					thousands:'.',
+					decimal:',',
+					symbolStay: true
+				}
+			);
 		})
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

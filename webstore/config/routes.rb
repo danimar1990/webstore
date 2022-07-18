@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :compras
   resources :clientes
   resources :produtos
   resources :fornecedores
@@ -7,6 +6,12 @@ Rails.application.routes.draw do
     collection do
 			get :autocomplete_fornecedor_nome
     end
+  end
+
+  resources :compras do
+    collection do
+      put :gerar_parcelas
+		end
   end
 	
   root to: "welcome#index"

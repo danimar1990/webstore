@@ -9,17 +9,16 @@
       <th>Ações</th>
     </tr>
   </thead>
-
   <tbody>
     <% @compras.each do |compra| %>
       <tr>
-        <td class="align-middle"><%= compra.data %></td>
-        <td class="align-middle"><%= compra.fornecedor.nome %></td>
-        <td class="align-middle">R$ <%= compra.valor_total %></td>
+        <td class="align-middle"><%= compra.try(:data) %></td>
+        <td class="align-middle"><%= compra.fornecedor.try(:nome) %></td>
+        <td class="align-middle"><%= number_to_currency(compra.try(:valor_total), :precision => 2) %></td>
         <td>
 			<%= link_to 'Exibir', compra, class: "btn btn-info text-white" %>
 			<%= link_to 'Editar', edit_compra_path(compra), class: "btn btn-warning text-white" %>
-			<%= link_to 'Excluir', compra, class: "btn btn-danger text-white", method: :delete, data: { confirm: 'Tem certeza?' } %>
+			<%= link_to 'Excluir', compra, class: "btn btn-danger text-white", method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta compra? Este processo é irreversível.' } %>
 		</td>
       </tr>
     <% end %>

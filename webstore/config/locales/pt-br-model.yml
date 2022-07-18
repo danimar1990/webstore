@@ -58,6 +58,8 @@
         vlr_total: "Valor total"
         quantidade: "Quantidade"
       compra_a_pagar:
+        parcelas_a_gerar: "Parcelas a gerar"
+        intervalo_dias: "Intervalo de dias"
         nro_parcela: "Nro parcela"
         vlr_parcela: "Valor parcela"
         data_vencto: "Vencimento"

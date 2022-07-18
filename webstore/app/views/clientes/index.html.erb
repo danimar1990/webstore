@@ -12,8 +12,8 @@
   <tbody>
     <% @clientes.each do |cliente| %>
       <tr>
-        <td class="align-middle"><%= cliente.nome %></td>
-        <td class="align-middle"><%= cliente.cpf_cnpj %></td>
+        <td class="align-middle"><%= cliente.try(:nome) %></td>
+        <td class="align-middle"><%= cliente.try(:cpf_cnpj) %></td>
 		
         <td>
 			<%= link_to 'Exibir', cliente, class: "btn btn-info text-white" %>

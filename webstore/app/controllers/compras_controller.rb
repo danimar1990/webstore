@@ -14,7 +14,7 @@ class ComprasController < ApplicationController
   def new
     @compra = Compra.new
 		@compra_itens = @compra.compra_itens.build
-		@compras_a_pagar = @compra.compras_a_pagar.build
+		#@compras_a_pagar = @compra.compras_a_pagar.build
   end
 
   # GET /compras/1/edit
@@ -59,6 +59,20 @@ class ComprasController < ApplicationController
     end
   end
 
+		def get_compra
+			compra = Compra.new
+			compra = Compra.find(params[:id]) if params[:id].present?
+			compra.attributes = compra_params
+			compra.qtde_parcelas = params[:parcelas_a_gerar].to_s.to_i
+			compra.nro_dias_parcelas = params[:intervalo_dias].to_s.to_i
+			compra
+		end
+
+		def gerar_parcelas
+			@compra = get_compra
+			@compra.gerar_parcelas_compras
+		end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_compra
@@ -73,4 +87,8 @@ class ComprasController < ApplicationController
 				compras_a_pagar_attributes: [:id, :compra_id, :nro_parcela, :vlr_parcela, :data_vencto, :_destroy]
 			)
     end
+
+		def parametros
+			params.permit!
+		end
 end

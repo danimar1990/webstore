@@ -17,7 +17,7 @@
 		<div class="col-md-6">
 			<div class="mb-3">
 				<label class="form-label">Preço de venda:</label>
-				<input type="text" class="form-control" value="<%= @produto.preco_venda %>">
+				<input type="text" class="form-control" value="<%= number_to_currency(@produto.preco_venda, :precision => 2) %>">
 			</div>
 		</div>
 	</div>

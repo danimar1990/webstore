@@ -1,7 +1,7 @@
 <%= form_with(model: compra, local: true, :class => 'form-floating') do |form| %>
   <% if compra.errors.any? %>
     <div id="error_explanation">
-      <div class="alert alert-danger"><%= pluralize(compra.errors.count, "erros") %> impediram que este fornecedor fosse salvo:
+      <div class="alert alert-danger"><%= pluralize(compra.errors.count, compra.errors.count > 1 ? "erros impediram" : "erro impediu") %> que esta compra fosse salva:
 				<ul>
 					<% compra.errors.full_messages.each do |message| %>
 						<li><%= message %></li>
@@ -19,7 +19,7 @@
 	  </div>
 	  <div class="col-md-6">
 	    <div class="form-floating mb-3">
-	    <%= form.number_field :valor_total, {class: "form-control", min: "0.00", max: "999999.00", step: "0.01"} %>
+	    <%= form.text_field :valor_total, {class: "form-control"} %>
 	    <%= form.label :valor_total %>
 	    </div>
 	  </div>
@@ -52,14 +52,14 @@
 		<div class="col-md-12">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos-tab-pane" type="button" role="tab" aria-controls="produtos-tab-pane" aria-selected="true">Produtos</button>
+					<button class="nav-link" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos-tab-pane" type="button" role="tab" aria-controls="produtos-tab-pane" aria-selected="true">Produtos</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="pagamento-tab" data-bs-toggle="tab" data-bs-target="#pagamento-tab-pane" type="button" role="tab" aria-controls="pagamento-tab-pane" aria-selected="false">Pagamento</button>
+					<button class="nav-link active " id="pagamento-tab" data-bs-toggle="tab" data-bs-target="#pagamento-tab-pane" type="button" role="tab" aria-controls="pagamento-tab-pane" aria-selected="false">Pagamento</button>
 				</li>
 			</ul>
 			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="produtos-tab-pane" role="tabpanel" aria-labelledby="produtos-tab" tabindex="0">
+				<div class="tab-pane fade" id="produtos-tab-pane" role="tabpanel" aria-labelledby="produtos-tab" tabindex="0">
 					<div class="row">
 						<h5 class="mt-3 mb-3">Lançamento de produtos</h5>
 						<div id="compra_itens">
@@ -72,16 +72,29 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="pagamento-tab-pane" role="tabpanel" aria-labelledby="pagamento-tab" tabindex="0">
+				<div class="tab-pane fade show active" id="pagamento-tab-pane" role="tabpanel" aria-labelledby="pagamento-tab" tabindex="0">
 					<div class="row">
 						<h5 class="mt-3 mb-3">Forma de pagamento</h5>
-						<div id="compras_a_pagar">
-							<%= form.fields_for :compras_a_pagar do |compra_a_pagar| %>
-								<%= render 'compra_a_pagar_fields', f: compra_a_pagar %>
-							<% end %>
-							<div class="links">
-								<%= link_to_add_association "+ Adicionar parcela", form, :compras_a_pagar, class: "badge bg-primary mb-2" %>
+						<% if @compra.new_record? %>
+						<div class="col-md-2">
+							<div class="form-floating mb-3">
+							<%= number_field_tag 'parcelas_a_gerar', 3, {class: "form-control", min: "1", max: "12"} %>
+							<%= form.label :parcelas_a_gerar %>
 							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="form-floating mb-3">
+								<%= number_field_tag 'intervalo_dias', 30, {class: "form-control", min: "1", max: "45"} %>
+	      				<%= form.label :intervalo_dias %>
+							</div>
+						</div>
+						<div class="col-md-2 mt-3">
+								<%= link_to "Gerar parcela(s)", '#', id: 'gerar_parcela', class: "badge bg-primary" %>
+						</div>
+						<% end %>
+						<hr>
+						<div id="compras_a_pagar">
+							<%= render 'compras_a_pagar_parcelas', form: form %>
 						</div>
 					</div>	
 				</div>
@@ -96,3 +109,18 @@
 	  </div>
 	</div>
 <% end %>
+<script>
+  function gerar_parcelas() {
+    $.ajax({
+      url: "<%= gerar_parcelas_compras_path %>",
+      data: $("form").serialize()+"&id=<%= @compra.id %>",
+      async: false,
+      type: 'put'
+    });
+  }
+
+  $("#gerar_parcela").on('click', function(event) {
+    event.preventDefault();
+    gerar_parcelas();
+  });
+	</script>

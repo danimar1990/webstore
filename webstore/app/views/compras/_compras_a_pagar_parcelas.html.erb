@@ -1,0 +1,9 @@
+﻿<%= form.fields_for :compras_a_pagar do |compra_a_pagar| %>
+	<%= render 'compra_a_pagar_fields', f: compra_a_pagar %>
+<% end %>
+
+<% if @compra.id %>
+	<div class="links">
+		<%= link_to_add_association "+ Adicionar parcela", form, :compras_a_pagar, class: "badge bg-primary mb-2" %>
+	</div>
+<% end %>

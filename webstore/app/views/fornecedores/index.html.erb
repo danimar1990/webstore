@@ -12,8 +12,8 @@
   <tbody>
     <% @fornecedores.each do |fornecedor| %>
       <tr>
-        <td class="align-middle"><%= fornecedor.nome %></td>
-        <td class="align-middle"><%= fornecedor.cpf_cnpj %></td>
+        <td class="align-middle"><%= fornecedor.try(:nome) %></td>
+        <td class="align-middle"><%= fornecedor.try(:cpf_cnpj) %></td>
 		
         <td>
 			<%= link_to 'Exibir', fornecedor, class: "btn btn-info text-white" %>

@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports: 
-      - '5433:5432'
+      - '5400:5400'
     volumes:
       - webstore-postgres:/var/lib/postgresql/data
 
@@ -22,7 +22,7 @@ services:
     links:
       - postgres
     ports:
-      - '3000:3000'
+      - '3100:3000'
     env_file:
       - .env
 

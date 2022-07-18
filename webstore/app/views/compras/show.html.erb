@@ -23,7 +23,7 @@
 		<div class="col-md-2">
 			<div class="mb-3">
 				<label class="form-label">Valor total:</label>
-				<input type="text" class="form-control" value="<%= @compra.try(:valor_total) %>">
+				<input type="text" class="form-control" value="<%= number_to_currency(@compra.try(:valor_total), :precision => 2) %>">
 			</div>
 		</div>
 	</div>
@@ -80,12 +80,12 @@
 							</div>
 							<div class="col-md-2">
 								<div class="mb-3">
-									<input type="text" class="form-control" value="<%= ci.try(:vlr_unitario) %>">
+									<input type="text" class="form-control" value="<%= number_to_currency(ci.try(:vlr_unitario), :precision => 2) %>">
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="mb-3">
-									<input type="text" class="form-control" value="<%= ci.try(:vlr_total) %>">
+									<input type="text" class="form-control" value="<%= number_to_currency(ci.try(:vlr_total), :precision => 2) %>">
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="mb-3">
-									<input type="text" class="form-control" value="<%= cp.try(:vlr_parcela) %>">
+									<input type="text" class="form-control" value="<%= number_to_currency(cp.try(:vlr_parcela ), :precision => 2) %>">
 								</div>
 							</div>
 							<div class="col-md-4">

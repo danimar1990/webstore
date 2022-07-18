@@ -1,7 +1,7 @@
 <%= form_with(model: fornecedor, local: true, :class => 'form-floating') do |form| %>
   <% if fornecedor.errors.any? %>
     <div id="error_explanation">
-      <div class="alert alert-danger"><%= pluralize(fornecedor.errors.count, "erros") %> impediram que este fornecedor fosse salvo:
+      <div class="alert alert-danger"><%= pluralize(compra.errors.count, compra.errors.count > 1 ? "erros impediram" : "erro impediu") %> que este fornecedor fosse salvo:
 				<ul>
 					<% fornecedor.errors.full_messages.each do |message| %>
 						<li><%= message %></li>

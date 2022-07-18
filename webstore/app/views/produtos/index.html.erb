@@ -12,8 +12,8 @@
   <tbody>
     <% @produtos.each do |produto| %>
       <tr>
-        <td class="align-middle"><%= produto.nome %></td>
-        <td class="align-middle"><%= produto.preco_venda %></td>
+        <td class="align-middle"><%= produto.try(:nome) %></td>
+        <td class="align-middle"><%= number_to_currency(produto.try(:preco_venda), :precision => 2) %></td>
 		
         <td>
 			<%= link_to 'Exibir', produto, class: "btn btn-info text-white" %>
