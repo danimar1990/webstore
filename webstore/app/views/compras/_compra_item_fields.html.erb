@@ -1,9 +1,15 @@
 <div class="nested-fields">
 	<div class="row">
 		<div class="col-md-5">
-			<div class="form-floating field mb-3">
-	    	<%= f.collection_select(:produto_id, Produto.order(:nome), :id, :nome, options = {include_blank: true}, html_options = {class: "form-control"}) %>
-	      <%= f.label :produto_id %>
+			<div class="form-floating field mb-3" id="nome_<%= form_tag_id(f.object_name, :produto_id) %>">
+				<%= autocomplete_field :produto, :nome,
+					autocomplete_produto_nome_acs_path,
+					:update_elements => { :id => "#"+ form_tag_id(f.object_name, :produto_id) },
+					:class => "form-control",
+					:id_element => "#"+ form_tag_id(f.object_name, :produto_id),
+					:value => f.object.produto.try(:nome) %>
+	      <%= f.label :produto %>
+				<%= f.hidden_field :produto_id %>
 			</div>
 		</div>
 		<div class="col-md-2">

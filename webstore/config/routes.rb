@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :acs do
     collection do
 			get :autocomplete_fornecedor_nome
+			get :autocomplete_produto_nome
     end
   end
 

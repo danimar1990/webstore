@@ -5,8 +5,8 @@
 
 	def initialize(qtde_parcelas, intervalos_dias, valor_total)
 		self.errors = ActiveModel::Errors.new(self)
-		self.qtde_parcelas = qtde_parcelas
-		self.intervalos_dias = intervalos_dias
+		self.qtde_parcelas = qtde_parcelas.to_s.to_i
+		self.intervalos_dias = intervalos_dias.to_s.to_i
 		self.valor_total = valor_total.to_s.to_d
 		self.parcelas = []
 	end
@@ -19,7 +19,7 @@
 		if self.valor_total > 999999
 			self.errors.add(:base, "O valor total da compra excede o valor máximo de R$ 999.999,00.")
 		end
-	
+
 		if self.intervalos_dias > 120
 			self.errors.add(:base, "O intervalo de dias entre parcelas não deve exceder 120 dias.")
 		end
