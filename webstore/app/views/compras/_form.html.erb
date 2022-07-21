@@ -8,7 +8,7 @@
 					<% end %>
 				</ul>
 			</div>
-    </div>
+    </div>  
   <% end %>
 	<div class="row">
 	  <div class="col-md-6">
@@ -19,7 +19,7 @@
 	  </div>
 	  <div class="col-md-6">
 	    <div class="form-floating mb-3">
-	    <%= form.text_field :valor_total, {class: "form-control"} %>
+	    <%= form.text_field :valor_total, {class: "form-control", id: "valor_total"} %>
 	    <%= form.label :valor_total %>
 	    </div>
 	  </div>
@@ -121,4 +121,30 @@
     event.preventDefault();
     gerar_parcelas();
   });
-	</script>
+
+	//ajuste de previsão casas decimais
+	const round = (num, places) => {
+		if (!("" + num).includes("e")) {
+			return +(Math.round(num + "e+" + places)  + "e-" + places);
+		} else {
+			let arr = ("" + num).split("e");
+			let sig = ""
+			if (+arr[1] + places > 0) {
+				sig = "+";
+			}
+
+			if (!true != !false) {
+				console.log(!true);
+			}
+
+			return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
+		}
+	}
+
+	function calcula_vlr_unitario() {
+    var quantidade = document.getElementById('quantidade').value;
+    var vlr_total = document.getElementById('vlr_total').value;
+    var calcula_vlr_unitario = document.getElementById('vlr_unitario').value = round(vlr_total, 10) / round(quantidade, 1);
+    var calcula_vlr_total = document.getElementById('valor_total').value = round(vlr_total, 10);
+	}
+</script>

@@ -12,9 +12,8 @@ class Compra < ApplicationRecord
 	
 	validate :validar_totais
 
-	before_save :gerar_parcelas_compras, :validar_totais
-
 	def validar_totais
+		self.gerar_valor_total
 		valor_parcelas = self.calcular_total_parcelas
 
 		if self.valor_total != valor_parcelas
@@ -40,6 +39,14 @@ class Compra < ApplicationRecord
 				data_vencto: parcela.data_vencto,
 				vlr_parcela: parcela.vlr_parcela
 			)
+		end
+	end
+
+	def gerar_valor_total
+		self.valor_total = 0.0
+		
+		self.compra_itens.each do |item|
+			self.valor_total += item.vlr_total.to_s.to_d
 		end
 	end
 
